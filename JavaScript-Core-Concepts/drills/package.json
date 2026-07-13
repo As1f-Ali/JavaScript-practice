@@ -1,0 +1,14 @@
+{
+  "name": "week-3-drills",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "TeachToTech Week 3 — JavaScript Core Concepts. Practice drills.",
+  "scripts": {
+    "test": "node --test",
+    "test:stretch": "node --test stretch/stretch-checks.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
