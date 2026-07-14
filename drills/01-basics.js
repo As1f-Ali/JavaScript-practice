@@ -18,7 +18,7 @@
  * Use a DEFAULT PARAMETER for the name, and a TEMPLATE LITERAL for the string.
  */
 export function greet(name = 'friend') {
-  // TODO
+  return `Hello, ${name}!`;
 }
 
 /**
@@ -31,7 +31,7 @@ export function greet(name = 'friend') {
  * then build the sentence with a TEMPLATE LITERAL.
  */
 export function describeStudent(student) {
-  // TODO
+  return `${student.name} is studying ${student.course} with a GPA of ${student.gpa}.`;
 }
 
 /**
@@ -46,7 +46,9 @@ export function describeStudent(student) {
  * Order matters — think about which one has to come second.
  */
 export function updateProfile(student, updates) {
-  // TODO
+  const copy =  {...student, ...updates};
+  
+  return copy;
 }
 
 /**
@@ -59,7 +61,13 @@ export function updateProfile(student, updates) {
  * Use a REST parameter (`...numbers`) to collect the arguments into an array.
  */
 export function sum(...numbers) {
-  // TODO
+  let totalSum = 0;
+
+  for (let num of numbers) {
+    totalSum += num;
+  }
+
+  return totalSum;
 }
 
 /**
@@ -73,5 +81,6 @@ export function sum(...numbers) {
  *   const [first, ...rest] = items;
  */
 export function splitFirst(items) {
-  // TODO
+  const [first, ...rest] = items;
+  return {first : first, rest : rest};
 }
