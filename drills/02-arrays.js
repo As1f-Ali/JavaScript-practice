@@ -22,7 +22,7 @@
  * `map` turns each item into something else, keeping the same length.
  */
 export function getNames(students) {
-  // TODO
+  return students.map( student => student.name);
 }
 
 /**
@@ -34,7 +34,7 @@ export function getNames(students) {
  * `filter` keeps the items you say yes to.
  */
 export function filterByCourse(students, course) {
-  // TODO
+  return students.filter(student => student.course === course);
 }
 
 /**
@@ -47,7 +47,7 @@ export function filterByCourse(students, course) {
  * should return `null`. `??` is a neat way to turn one into the other.
  */
 export function findById(students, id) {
-  // TODO
+  return students.find(student => student.id === id) ?? null;
 }
 
 /**
@@ -65,7 +65,10 @@ export function findById(students, id) {
  *   - What if the course isn't in the object yet?  (it's `undefined` — start it at 0)
  */
 export function countByCourse(students) {
-  // TODO
+  return students.reduce((count, student) => {
+    count[student.course] = (count[student.course] || 0) + 1;
+    return count
+  }, {})
 }
 
 /**
@@ -81,7 +84,12 @@ export function countByCourse(students) {
  * To round: Math.round(n * 10) / 10
  */
 export function averageGpa(students) {
-  // TODO
+  if(students.length === 0) {
+    return null;
+  }
+
+  return Math.round(
+    (students.reduce( (sum, student) => sum + student.gpa, 0) / students.length) * 10) / 10;
 }
 
 /**
@@ -94,5 +102,5 @@ export function averageGpa(students) {
  * `every` asks "is this true for all of them?".
  */
 export function allPassed(students, minGpa) {
-  // TODO
+  return students.every( student => student.gpa >= minGpa);
 }
